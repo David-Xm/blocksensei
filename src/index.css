@@ -1,10 +1,14 @@
+@import url("https://fonts.googleapis.com/css2?family=Sora:wght@100..800&display=swap");
 @import "tailwindcss";
 
 @theme {
+  --font-Sora: "Sora", sans-serif;
   --Inter: "Inter", sans-serif;
   --color-bg: #020202;
   --color-primary: #4da2ff;
   --color-secondary: #7a5fff;
+  --color-accent: #facc15;
+  --color-text-primary: #fcfcfc;
 }
 
 @layer base {
