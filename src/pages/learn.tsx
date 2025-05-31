@@ -44,9 +44,9 @@ const Learn = () => {
         </div>
 
         {/* Content area */}
-        <div className='mt-6 text-white'>
+        <div className='flex justify-center items-center mx-auto mt-6 text-white container'>
           {activeTab === "basics" ? (
-            <div className='gap-2 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 p-8'>
+            <div className='gap-6 grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 p-8'>
               <Card imageUrl={Card_img} btn='Get Started' />
               <Card imageUrl={Card_img1} btn='Get Started' />
               <Card imageUrl={Card_img2} btn='Get Started' />
