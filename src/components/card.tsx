@@ -11,7 +11,12 @@ interface CardProps {
   content?: string;
   time?: string | "0";
   price?: string | "0";
+  lessonId?: string; // To uniquely identify the lesson
+  onStartLesson?: (lessonId: string) => void; // Callback when lesson starts
+  onContinueLesson?: (lessonId: string) => void; // Callback when lesson continues
+  isLessonStarted?: boolean; // New prop to indicate if the lesson has been started
 }
+
 const Card: React.FC<CardProps> = ({ imageUrl, btn, time, price }) => {
   return (
     <div className='relative flex justify-center items-center bg-gradient-to-r from-primary to-secondary p-[2px] rounded-2xl max-w-[282px]'>
