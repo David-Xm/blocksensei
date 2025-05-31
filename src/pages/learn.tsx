@@ -1,5 +1,11 @@
-const Learn = () => {
-  return <div>Learn</div>;
-};
+import "./learn.css"
 
-export default Learn;
+const learn = () => {
+  return (
+    <div className='maincontainer'>
+       <p>hello</p>
+    </div>
+  )
+}
+
+export default learn

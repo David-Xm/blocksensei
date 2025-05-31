@@ -4,6 +4,7 @@ import Navbar from "./components/navbar";
 import Dashboard from "./pages/dashboard";
 import Learn from "./pages/learn";
 import SignUp from "./pages/SignUp";
+import Quest from "./pages/Quest";
 
 function App() {
   return (
@@ -12,9 +13,9 @@ function App() {
       <Routes>
   <Route path='/' element={<Home />} />
   <Route path='/signup' element={<SignUp />} /> {/* ✅ top-level */}
-  <Route path='/dashboard' element={<Dashboard />}>
-    <Route path='learn' element={<Learn />} />
-  </Route>
+  <Route path='/dashboard' element={<Dashboard />}/>
+  <Route path='/learn' element={<Learn />} />
+  <Route path='/quest' element={<Quest />} />
 </Routes>
 
     </div>
