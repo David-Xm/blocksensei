@@ -4,8 +4,8 @@ import Divier from "../components/divier";
 
 const Home = () => {
   return (
-    <main className='flex justify-center items-center bg-gradient-to-b from-transparent to-primary rounded-bl-4xl rounded-br-4xl h-full'>
-      <div className='flex flex-col justify-center items-center gap-12 my-16'>
+    <main>
+      <div className='flex flex-col justify-center items-center gap-12 bg-gradient-to-b from-transparent to-primary mt-20 rounded-bl-4xl rounded-br-4xl'>
         <div className='flex flex-col items-center gap-4 px-4 text-center'>
           <h1 className='font-Sora font-bold text-4xl'>
             Learn Web3 the Fun Way — Guided by Your Sensei.
@@ -29,6 +29,10 @@ const Home = () => {
             <p>NFT Certificates</p>
           </div>
         </div>
+      </div>
+      <div className='flex flex-col items-center gap-2 py-6 text-text-secondary text-sm'>
+        <p>Group 1 Project</p>
+        <p>All Rights Reserved. Copyright © Group 1</p>
       </div>
     </main>
   );

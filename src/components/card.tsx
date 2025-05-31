@@ -11,9 +11,11 @@ interface CardProps {
 }
 const Card: React.FC<CardProps> = ({ imageUrl, btn }) => {
   return (
-    <div className='flex flex-col items-center gap-4 bg-bg shadow-md p-8 rounded-2xl max-w-[280px]'>
-      <img src={imageUrl} alt='icon' />
-      <Button title={btn} />
+    <div className='relative flex justify-center items-center bg-gradient-to-r from-primary to-secondary p-[2px] rounded-2xl'>
+      <div className='flex flex-col items-center gap-4 bg-bg shadow-md p-8 border- rounded-2xl max-w-[280px]'>
+        <img src={imageUrl} alt='icon' />
+        <Button title={btn} />
+      </div>
     </div>
   );
 };

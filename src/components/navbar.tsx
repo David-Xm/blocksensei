@@ -3,7 +3,7 @@ import Button from "./button";
 
 const Navbar = () => {
   return (
-    <header className='bg-bg'>
+    <header className='top-0 right-0 left-0 fixed bg-bg'>
       <nav className='flex justify-between items-center px-8 py-4'>
         <div>
           <img src={Logo} alt='Logo' />
