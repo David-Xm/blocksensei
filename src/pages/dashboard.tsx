@@ -1,26 +1,46 @@
 import { Link, Outlet } from "react-router-dom";
+import Logo from "../assets/Logo.png";
+import CoinView from "../components/coinview";
 
 const Dashboard = () => {
   return (
     <div className='flex min-h-screen'>
       {/* Sidebar */}
-      <aside className='p-4 w-64'>
-        <h2 className='mb-4 font-bold text-xl'>Sign In</h2>
-        <nav className='flex flex-col gap-2'>
-          <Link to='learn' className='hover:underline'>
+      <aside className='top-0 z-50 fixed p-4 w-64'>
+        <div>
+          <img src={Logo} alt='Logo' />
+        </div>
+        <nav className='flex flex-col justify-center gap-6 p-6'>
+          <Link
+            to='learn'
+            className='hover:bg-primary/40 px-4 py-2 border hover:border-primary border-transparent rounded-lg hover:underline'
+          >
             Learn
           </Link>
-          <Link to='build' className='hover:underline'>
-            Build
+          <Link
+            to='quest'
+            className='hover:bg-primary/40 px-4 py-2 border hover:border-primary border-transparent rounded-lg hover:underline'
+          >
+            Quest
           </Link>
-          <Link to='explore' className='hover:underline'>
-            Explore
+          <Link
+            to='profile'
+            className='hover:bg-primary/40 px-4 py-2 border hover:border-primary border-transparent rounded-lg hover:underline'
+          >
+            Profile
           </Link>
         </nav>
       </aside>
 
+      {/* Top Nav */}
+      <header className='top-0 right-0 left-64 z-40 fixed bg-bg border-white/30 border-b'>
+        <nav className='flex justify-end items-center px-8 py-4'>
+          <CoinView />
+        </nav>
+      </header>
+
       {/* Main content */}
-      <main className='flex-1 bg-white dark:bg-gray-900 p-6 text-black dark:text-white'>
+      <main className='flex-1 pl-64'>
         <Outlet />
       </main>
     </div>
