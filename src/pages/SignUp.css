@@ -1,6 +1,6 @@
-
-.logo, .x {
-    width: 500px;
+.logo,
+.x {
+  width: 500px;
 }
 
 .topdiv {
@@ -24,7 +24,6 @@
 
 .startdiv {
   background-color: #333333;
-  width: 600px;
   padding: 30px;
   display: flex;
   justify-content: center;

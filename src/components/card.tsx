@@ -18,8 +18,8 @@ const Card: React.FC<CardProps> = ({ imageUrl, btn, time, price }) => {
       <div className='flex flex-col items-center gap-4 bg-bg shadow-md p-8 border- rounded-2xl max-w-[280px]'>
         <div className='w-full'>
           <div className='flex justify-between items-center mb-4 w-full'>
-            <Time time={time} />
-            <Price price={price} />
+            {time && <Time time={time} />}
+            {price && <Price price={price} />}
           </div>
         </div>
 
