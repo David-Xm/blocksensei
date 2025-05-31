@@ -4,6 +4,7 @@
   --Inter: "Inter", sans-serif;
   --color-bg: #020202;
   --color-primary: #4da2ff;
+  --color-secondary: #7a5fff;
 }
 
 @layer base {
