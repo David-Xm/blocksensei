@@ -23,10 +23,12 @@ const Navbar = () => {
   return (
     <header className='top-0 right-0 left-0 z-40 fixed bg-bg'>
       <nav className='flex justify-between items-center px-8 py-4'>
-        <div>
+        <div className='flex items-center max-md:w-1/2'>
           <img src={Logo} alt='Logo' />
         </div>
-        <Button title={getButtonText()} />
+        <div className='flex justify-end items-center max-md:w-1/2'>
+          <Button title={getButtonText()} />
+        </div>
       </nav>
     </header>
   );
