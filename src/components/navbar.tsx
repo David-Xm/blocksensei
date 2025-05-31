@@ -27,7 +27,7 @@ const Navbar = () => {
           <img src={Logo} alt='Logo' />
         </div>
         <div className='flex justify-end items-center max-md:w-1/2'>
-          <Link to='/dashboard/learn'>
+          <Link to='/signup'>
             <Button title={getButtonText()} />
           </Link>
         </div>
