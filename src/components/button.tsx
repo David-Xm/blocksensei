@@ -6,7 +6,7 @@ interface ButtonProps {
 }
 const Button: React.FC<ButtonProps> = ({ title }) => {
   return (
-    <div className='flex items-center gap-4 bg-gradient-to-r from-primary to-secondary rounded-full text-text-primary text-sm cursor-pointer'>
+    <div className='flex justify-center items-center gap-4 bg-gradient-to-r from-primary to-secondary rounded-full text-text-primary text-sm cursor-pointer'>
       <button className='px-4 py-2 cursor-pointer'>{title}</button>
     </div>
   );

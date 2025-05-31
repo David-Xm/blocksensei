@@ -1,64 +1,64 @@
+
 .logo, .x {
     width: 500px;
 }
 
 .topdiv {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding-left: 150px;
-    padding-top: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-left: 150px;
+  padding-top: 30px;
 }
 .btn {
-    cursor: pointer;
+  cursor: pointer;
 }
 
 .getstarteddiv {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    margin-top: 100px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin-top: 100px;
 }
 
 .startdiv {
-    background-color: #333333;
-    width: 600px;
-    padding: 30px;
-    display: flex;
-    justify-content: center;
-    gap: 20px;
-    flex-direction: column;
-    border-radius: 10px;
-    margin-top: 20px;
+  background-color: #333333;
+  width: 600px;
+  padding: 30px;
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  flex-direction: column;
+  border-radius: 10px;
+  margin-top: 20px;
 }
 
-
 .get {
-    font-weight: bold;
-    font-size: 18px;
+  font-weight: bold;
+  font-size: 18px;
 }
 
 .track {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    font-size: 13px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 13px;
 }
 
 .link {
-    background: linear-gradient(#4DA2FF, #7A5FFF);
-    text-align: center;
-    padding: 10px;
-    border-radius: 50px;
+  background: linear-gradient(#4da2ff, #7a5fff);
+  text-align: center;
+  padding: 10px;
+  border-radius: 50px;
 }
 
 .container {
-    position: relative;
+  position: relative;
 }
 
 .neon {
-    position: absolute;
-    bottom: -60%;
-    right: 0;
+  position: absolute;
+  bottom: -60%;
+  right: 0;
 }
