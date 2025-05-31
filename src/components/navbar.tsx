@@ -22,7 +22,7 @@ const Navbar = () => {
   };
   return (
     <header className='hidden top-0 right-0 left-0 z-40 md:fixed md:flex bg-bg'>
-      <nav className='flex justify-between items-center px-8 py-4'>
+      <nav className='flex justify-between items-center px-8 py-4 w-full'>
         <div className='flex items-center max-md:w-1/2'>
           <img src={Logo} alt='Logo' />
         </div>
