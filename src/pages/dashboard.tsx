@@ -6,7 +6,7 @@ const Dashboard = () => {
   return (
     <div className='flex min-h-screen'>
       {/* Sidebar */}
-      <aside className='top-0 z-50 fixed p-4 w-64'>
+      <aside className='top-0 z-50 fixed bg-bg p-4 w-64'>
         <div>
           <img src={Logo} alt='Logo' />
         </div>
