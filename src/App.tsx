@@ -3,17 +3,20 @@ import Home from "./pages/home";
 import Navbar from "./components/navbar";
 import Dashboard from "./pages/dashboard";
 import Learn from "./pages/learn";
+import SignUp from "./pages/SignUp";
 
 function App() {
   return (
     <div className='mx-auto container'>
-      <Navbar />
+      {/* <Navbar /> */}
       <Routes>
-        <Route path='/' element={<Home />} />
-        <Route path='/dashboard' element={<Dashboard />}>
-          <Route path='learn' element={<Learn />} />
-        </Route>
-      </Routes>
+  <Route path='/' element={<Home />} />
+  <Route path='/signup' element={<SignUp />} /> {/* ✅ top-level */}
+  <Route path='/dashboard' element={<Dashboard />}>
+    <Route path='learn' element={<Learn />} />
+  </Route>
+</Routes>
+
     </div>
   );
 }
