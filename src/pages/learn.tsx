@@ -1,27 +1,20 @@
 import { useEffect, useState } from "react";
 import Card from "../components/card";
 import Card_img from "../assets/card_img1.png";
+import Coin_img from "../assets/coin.png";
+import LessonModal from "../components/lessonModal";
+import type { Lesson } from "../types";
 // import Card_img1 from "../assets/card_img2.png";
 // import Card_img2 from "../assets/card_img3.png";
 // import Card_img3 from "../assets/card_img4.png";
-
-interface Lesson {
-  id: string;
-  title: string;
-  content: string;
-  description: string;
-  imageUrl: string;
-  time: string;
-  price: string;
-  // ... other lesson specific data
-}
 
 const Learn: React.FC = () => {
   const [activeTab, setActiveTab] = useState("basics");
   const [lessons, setLessons] = useState<Lesson[]>([]);
   const [startedLessons, setStartedLessons] = useState<string[]>([]); // Stores IDs of started lessons
-  const [showModal, setShowModal] = useState(false);
   const [selectedLesson, setSelectedLesson] = useState<Lesson | null>(null);
+  const [activeSectionIndex, setActiveSectionIndex] = useState(0);
+  const [isModalOpen, setIsModalOpen] = useState(false);
 
   useEffect(() => {
     // Load started lessons from local storage on component mount
@@ -41,8 +34,197 @@ const Learn: React.FC = () => {
         imageUrl: Card_img,
         time: "15",
         price: "800",
+        sections: [
+          {
+            id: "web3-intro-1",
+            type: "intro",
+            title: "Welcome to Web3",
+            content:
+              "This module introduces Web3 and how the internet has evolved.",
+            imageUrl: Card_img,
+          },
+          {
+            id: "web3-intro-2",
+            type: "lesson",
+            title: "Web1 → Web2 → Web3",
+            content:
+              "Web1 was read-only, Web2 added interaction, and Web3 is all about decentralization.",
+          },
+          {
+            id: "web3-intro-3",
+            type: "quiz",
+            title: "Quick Quiz: Web Evolution",
+            quiz: {
+              intro:
+                "You’ve seen how the web has evolved, it’s time to prove what you’ve learned.Your first Quiz  is waiting. Ready to show off your Web3 smarts?",
+              question: "What is a key characteristic of Web3?",
+              options: [
+                "Static pages",
+                "Social media",
+                "Decentralization",
+                "Forums",
+              ],
+              answer: "Decentralization",
+            },
+          },
+          {
+            id: "web3-intro-4",
+            type: "reward",
+            title: "Congratulations!",
+            content:
+              "Congratulations! You've completed the introduction to Web3.",
+            imageUrl: Coin_img,
+          },
+        ],
       },
-      // ... more lessons
+      {
+        id: "blockchain-basics",
+        title: "Blockchain 101",
+        content: "Understand how blockchain works and why it matters.",
+        description:
+          "Explore the fundamentals of blockchain technology: blocks, chains, consensus, and decentralization.",
+        imageUrl: Card_img,
+        time: "20",
+        price: "1000",
+        sections: [
+          {
+            id: "blockchain-1",
+            type: "intro",
+            title: "Intro to Blockchain",
+            content: "Blockchain is a decentralized, immutable ledger.",
+          },
+          {
+            id: "blockchain-2",
+            type: "lesson",
+            title: "How Blockchain Works",
+            content:
+              "Each block contains data, a hash, and the hash of the previous block — ensuring integrity.",
+            videoUrl: "/videos/blockchain-explained.mp4",
+          },
+          {
+            id: "blockchain-3",
+            type: "quiz",
+            title: "Quick Quiz: Blockchain",
+            quiz: {
+              intro:
+                "You’ve seen how the web has evolved, it’s time to prove what you’ve learned.Your first Quiz  is waiting. Ready to show off your Web3 smarts?",
+              question: "What connects blocks in a blockchain?",
+              options: [
+                "Shared files",
+                "Internet",
+                "Hashes",
+                "Smart contracts",
+              ],
+              answer: "Hashes",
+            },
+          },
+          {
+            id: "blockchain-4",
+            type: "reward",
+            title: "Congratulations!",
+            content:
+              "Great job! You're now familiar with the basics of blockchain.",
+            imageUrl: Coin_img,
+          },
+        ],
+      },
+      {
+        id: "smart-contracts",
+        title: "Intro to Smart Contracts",
+        content: "Learn what smart contracts are and how they automate trust.",
+        description:
+          "Smart contracts are self-executing code that runs on the blockchain. Learn their power and limitations.",
+        imageUrl: Card_img,
+        time: "18",
+        price: "900",
+        sections: [
+          {
+            id: "smart-1",
+            type: "intro",
+            title: "What Are Smart Contracts?",
+            content:
+              "They allow trustless execution of code without intermediaries.",
+          },
+          {
+            id: "smart-2",
+            type: "lesson",
+            title: "Smart Contract Use Cases",
+            content:
+              "Finance, identity, gaming, real estate — smart contracts are everywhere.",
+          },
+          {
+            id: "smart-3",
+            type: "quiz",
+            title: "Quick Quiz: Smart Contracts",
+            quiz: {
+              intro:
+                "You’ve seen how the web has evolved, it’s time to prove what you’ve learned.Your first Quiz  is waiting. Ready to show off your Web3 smarts?",
+              question:
+                "Which language is commonly used to write Ethereum smart contracts?",
+              options: ["Python", "Solidity", "Java", "Rust"],
+              answer: "Solidity",
+            },
+          },
+          {
+            id: "smart-4",
+            type: "reward",
+            title: "Congratulations!",
+            content: "Smart move! You've completed the smart contracts lesson.",
+            imageUrl: Coin_img,
+          },
+        ],
+      },
+      {
+        id: "wallets-setup",
+        title: "Wallets and Web3 Identity",
+        content: "Setup and manage your crypto wallet securely.",
+        description:
+          "Your wallet is your gateway to the Web3 world. Learn to set up MetaMask and stay safe.",
+        imageUrl: Card_img,
+        time: "10",
+        price: "700",
+        sections: [
+          {
+            id: "wallet-1",
+            type: "intro",
+            title: "Why You Need a Wallet",
+            content:
+              "Wallets help you interact with dApps and manage crypto assets.",
+          },
+          {
+            id: "wallet-2",
+            type: "lesson",
+            title: "Installing MetaMask",
+            content:
+              "Visit metamask.io, install the extension, and create your wallet securely.",
+            imageUrl: "/images/metamask-install.png",
+          },
+          {
+            id: "wallet-3",
+            type: "quiz",
+            title: "Quiz: Wallet Safety",
+            quiz: {
+              intro:
+                "You’ve seen how the web has evolved, it’s time to prove what you’ve learned.Your first Quiz  is waiting. Ready to show off your Web3 smarts?",
+              question: "What's the best way to secure your seed phrase?",
+              options: [
+                "Screenshot it",
+                "Share with friends",
+                "Write it on paper",
+                "Email it to yourself",
+              ],
+              answer: "Write it on paper",
+            },
+          },
+          {
+            id: "wallet-4",
+            type: "reward",
+            title: "Congratulations!",
+            content: "You're ready to explore Web3 with your new wallet!",
+            imageUrl: Coin_img,
+          },
+        ],
+      },
     ];
     setLessons(mockLessons);
   }, []);
@@ -52,31 +234,40 @@ const Learn: React.FC = () => {
     localStorage.setItem("startedLessons", JSON.stringify(startedLessons));
   }, [startedLessons]);
 
-  const handleStartLesson = (lessonId: string) => {
-    // Mark the lesson as started
-    setStartedLessons((prev) => [...prev, lessonId]);
-    // Close modal and navigate to the lesson content
-    setShowModal(false);
-    // In a real application, you'd use react-router-dom or similar to navigate:
-    // navigate(`/lessons/${lessonId}`);
-    console.log(`Starting lesson: ${lessonId}`);
-  };
-
-  const handleContinueLesson = (lessonId: string) => {
-    // Just navigate to the lesson content
-    // navigate(`/lessons/${lessonId}`);
-    setShowModal(false);
-    console.log(`Continuing lesson: ${lessonId}`);
+  //
+  const handleCardClick = (lesson: Lesson) => {
+    setSelectedLesson(lesson);
+    setActiveSectionIndex(0);
   };
 
   const openLessonModal = (lesson: Lesson) => {
     setSelectedLesson(lesson);
-    setShowModal(true);
+    setActiveSectionIndex(0);
+    setIsModalOpen(true);
   };
 
+  // const closeLessonModal = () => {
+  //   setIsModalOpen(false);
+  //   setSelectedLesson(null);
+  // };
+
   const closeModal = () => {
-    setShowModal(false);
     setSelectedLesson(null);
+  };
+
+  const handleNext = () => {
+    if (
+      selectedLesson &&
+      activeSectionIndex < selectedLesson.sections.length - 1
+    ) {
+      setActiveSectionIndex((prev) => prev + 1);
+    }
+  };
+
+  const handlePrev = () => {
+    if (activeSectionIndex > 0) {
+      setActiveSectionIndex((prev) => prev - 1);
+    }
   };
 
   return (
@@ -116,24 +307,20 @@ const Learn: React.FC = () => {
         </div>
 
         {/* Content area */}
-        <div className='flex justify-center items-center mx-auto mt-6 text-white container'>
+        <div className='flex justify-center items-center mt-6 text-white'>
           {activeTab === "basics" ? (
-            <div className='gap-6 grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 p-8'>
+            <div className='gap-6 grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 p-4'>
               {lessons.map((lesson) => (
                 <div key={lesson.id} onClick={() => openLessonModal(lesson)}>
                   <Card
+                    key={lesson.id}
                     imageUrl={lesson.imageUrl}
-                    btn={
-                      startedLessons.includes(lesson.id) ? "Continue" : "Start"
-                    }
-                    title={lesson.title} // Use dynamic title
-                    content={lesson.content} // Use dynamic content
+                    btn='Start'
+                    title={lesson.title}
+                    content={lesson.content}
                     time={lesson.time}
                     price={lesson.price}
-                    lessonId={lesson.id}
-                    onStartLesson={handleStartLesson} // These callbacks will be used in the modal
-                    onContinueLesson={handleContinueLesson} // These callbacks will be used in the modal
-                    isLessonStarted={startedLessons.includes(lesson.id)} // Pass the status
+                    onStartLesson={() => handleCardClick(lesson)}
                   />
                 </div>
               ))}
@@ -143,36 +330,14 @@ const Learn: React.FC = () => {
           )}
         </div>
 
-        {showModal && selectedLesson && (
-          <div className='z-50 fixed inset-0 flex justify-center items-center bg-black/50 bg-opacity-50'>
-            <div className='bg-bg p-8 rounded-lg w-full max-w-md'>
-              <h2 className='mb-4 font-bold text-xl'>{selectedLesson.title}</h2>
-              <p className='mb-6'>{selectedLesson.description}</p>
-              <div className='flex justify-end gap-4'>
-                <button
-                  onClick={closeModal}
-                  className='bg-gray-300 px-4 py-2 rounded'
-                >
-                  Close
-                </button>
-                {startedLessons.includes(selectedLesson.id) ? (
-                  <button
-                    onClick={() => handleContinueLesson(selectedLesson.id)}
-                    className='bg-blue-500 px-4 py-2 rounded text-white'
-                  >
-                    Continue Lesson
-                  </button>
-                ) : (
-                  <button
-                    onClick={() => handleStartLesson(selectedLesson.id)}
-                    className='bg-blue-500 px-4 py-2 rounded text-white'
-                  >
-                    Start Lesson
-                  </button>
-                )}
-              </div>
-            </div>
-          </div>
+        {isModalOpen && selectedLesson && (
+          <LessonModal
+            lesson={selectedLesson}
+            activeSectionIndex={activeSectionIndex}
+            onClose={closeModal}
+            onNext={handleNext}
+            onPrev={handlePrev}
+          />
         )}
       </div>
     </div>
