@@ -8,7 +8,7 @@
   --color-primary: #4da2ff;
   --color-secondary: #7a5fff;
   --color-accent: #facc15;
-  --color-text-primary: #fcfcfc;
+  --color-light: #fcfcfc;
 }
 
 @layer base {

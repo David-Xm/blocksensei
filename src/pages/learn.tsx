@@ -271,10 +271,17 @@ const Learn: React.FC = () => {
   };
 
   return (
-    <div className='flex flex-col justify-center items-center gap-12 bg-gradient-to-b from-transparent to-primary mt-20 rounded-bl-4xl rounded-br-4xl'>
+    <div
+      className='flex flex-col justify-center items-center gap-12 bg-gradient-to-b from-transparent to-primary mt-20 rounded-bl-4xl rounded-br-4xl'
+      data-aos='fade-up'
+    >
       <div className='m-8 mx-auto w-full'>
         {/* Tabs container */}
-        <div className='relative flex justify-between items-center bg-[#1a1a1a] mx-auto p-1 rounded-full w-full max-w-sm'>
+        <div
+          className='relative flex justify-between items-center bg-[#1a1a1a] mx-auto p-1 rounded-full w-full max-w-sm'
+          data-aos='fade-up'
+          data-aos-delay='200'
+        >
           {/* Pill background */}
           <div
             className={`absolute top-1 bottom-1 transition-all duration-300 rounded-full bg-[#3b82f6] w-1/2 ${
@@ -307,11 +314,20 @@ const Learn: React.FC = () => {
         </div>
 
         {/* Content area */}
-        <div className='flex justify-center items-center mt-6 text-white'>
+        <div
+          className='flex justify-center items-center mt-6 text-white'
+          data-aos='fade-up'
+          data-aos-delay='400'
+        >
           {activeTab === "basics" ? (
             <div className='gap-6 grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 p-4'>
               {lessons.map((lesson) => (
-                <div key={lesson.id} onClick={() => openLessonModal(lesson)}>
+                <div
+                  key={lesson.id}
+                  onClick={() => openLessonModal(lesson)}
+                  data-aos='fade-up'
+                  data-aos-delay={`${200 + lessons.indexOf(lesson) * 100}`}
+                >
                   <Card
                     key={lesson.id}
                     imageUrl={lesson.imageUrl}
