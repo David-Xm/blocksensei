@@ -272,7 +272,7 @@ const Learn: React.FC = () => {
 
   return (
     <div
-      className='flex flex-col justify-center items-center gap-12 bg-gradient-to-b from-transparent to-primary mt-20 rounded-bl-4xl rounded-br-4xl'
+      className='flex flex-col justify-center items-center gap-12 bg-gradient-to-b from-transparent to-primary rounded-bl-4xl rounded-br-4xl'
       data-aos='fade-up'
     >
       <div className='m-8 mx-auto w-full'>
