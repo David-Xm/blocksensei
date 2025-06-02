@@ -5,8 +5,8 @@ import Banner from "../assets/banner.png";
 const Profile = () => {
   const [activeTab, setActiveTab] = useState("achievements");
   return (
-    <div className='bg-[#2a2a2a] mx-auto mt-22 h-screen font-sans text-white'>
-      <div className='m-8'>
+    <div className='bg-[#2a2a2a] mx-auto h-screen font-sans text-white'>
+      <div className='mx-8'>
         <h3 className='py-6 font-semibold text-2xl'>Profile</h3>
         {/* Banner + Avatar */}
         <div className='relative bg-red-500 rounded-xl w-full h-48 overflow-hidden'>
