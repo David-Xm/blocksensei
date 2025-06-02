@@ -9,8 +9,21 @@ import Quest from "./pages/Quest";
 import Profile from "./pages/profile";
 import Navbar from "./components/navbar";
 
+import "aos/dist/aos.css";
+import AOS from "aos";
+import { useEffect } from "react";
+
 function App() {
   const location = useLocation();
+
+  useEffect(() => {
+    AOS.init({
+      offset: 10,
+      duration: 600,
+      easing: "ease-in-out-sine",
+      delay: 100,
+    });
+  });
 
   // Check if the current path starts with "/dashboard"
   const isDashboard = location.pathname.startsWith("/dashboard");
