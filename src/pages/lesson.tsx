@@ -102,7 +102,7 @@ export default function LessonInterface() {
   };
 
   return (
-    <div className='bg-[#333333] min-h-screen text-white'>
+    <div className='bg-[#333333] mt-20 md:mt-0 min-h-screen text-white'>
       {/* Header is commented out as in the user's version */}
       {/* <div className='flex justify-between items-center p-6'>
         <div className='flex items-center gap-3'>
@@ -201,7 +201,7 @@ export default function LessonInterface() {
               <div className='flex justify-between items-center mt-12'>
                 <button
                   onClick={handleBack}
-                  className='bg-[#A4A4A466] hover:bg-gray-500 px-6 py-3 rounded-full font-medium transition-colors'
+                  className='bg-[#A4A4A466] hover:bg-gray-500 px-4 py-2 rounded-full font-medium transition-colors'
                 >
                   Back
                 </button>
@@ -214,7 +214,7 @@ export default function LessonInterface() {
 
                 <button
                   onClick={handleNext}
-                  className='bg-gradient-to-r from-primary to-secondary px-6 py-3 rounded-full font-medium transition-colors'
+                  className='bg-gradient-to-r from-primary to-secondary px-4 py-2 rounded-full font-medium transition-colors'
                 >
                   Continue
                 </button>
@@ -224,8 +224,8 @@ export default function LessonInterface() {
         )}
 
         {section.type === "quiz" && (
-          <div className='w-full max-w-4xl'>
-            <div className='p-8 border border-gray-600 rounded-2xl'>
+          <div className='w-full md:max-w-4xl'>
+            <div className='p-2 md:p-8 border border-gray-600 rounded-2xl'>
               <h1 className='mb-8 font-bold text-4xl text-center'>
                 {section.title}
               </h1>
@@ -251,7 +251,7 @@ export default function LessonInterface() {
                         >
                           <div
                             className={`
-                              flex items-center justify-center h-5 w-5 rounded border-2 border-secondary bg-[#020202] mr-3 transition-all duration-200
+                              flex items-center text-sm md:text-base justify-center h-5 w-5 rounded border-2 border-secondary bg-[#020202] mr-3 transition-all duration-200
                               ${
                                 selectedOption === opt && isCorrect
                                   ? "bg-secondary"
@@ -297,7 +297,7 @@ export default function LessonInterface() {
               <div className='flex justify-between items-center mt-12'>
                 <button
                   onClick={handleBack}
-                  className='bg-[#A4A4A466] hover:bg-gray-500 px-6 py-3 rounded-full font-medium transition-colors'
+                  className='bg-[#A4A4A466] hover:bg-gray-500 px-4 py-2 rounded-full font-medium transition-colors'
                 >
                   Back
                 </button>
@@ -311,7 +311,7 @@ export default function LessonInterface() {
                 <button
                   onClick={handleOpenReward}
                   disabled={!showFeedback}
-                  className='disabled:bg-gray-600 bg-gradient-to-r from-primary to-secondary px-6 py-3 rounded-full font-medium transition-colors disabled:cursor-not-allowed'
+                  className='disabled:bg-gray-600 bg-gradient-to-r from-primary to-secondary px-4 py-2 rounded-full font-medium transition-colors disabled:cursor-not-allowed'
                 >
                   Continue
                 </button>
