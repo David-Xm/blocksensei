@@ -1,15 +1,15 @@
-"use client"
+"use client";
 
-import Modal from "../Modal"
+import Modal from "../modal";
 
 interface ConfirmationModalProps {
-  isOpen: boolean
-  onClose: () => void
-  onConfirm: () => void
-  title?: string
-  message: string
-  confirmText?: string
-  cancelText?: string
+  isOpen: boolean;
+  onClose: () => void;
+  onConfirm: () => void;
+  title?: string;
+  message: string;
+  confirmText?: string;
+  cancelText?: string;
 }
 
 const ConfirmationModal = ({
@@ -22,31 +22,31 @@ const ConfirmationModal = ({
   cancelText = "Cancel",
 }: ConfirmationModalProps) => {
   const handleConfirm = (): void => {
-    onConfirm()
-    onClose()
-  }
+    onConfirm();
+    onClose();
+  };
 
   return (
     <Modal isOpen={isOpen} onClose={onClose} title={title}>
-      <div className="text-center">
-        <p className="mb-8 text-gray-300 text-lg leading-relaxed">{message}</p>
-        <div className="flex justify-center gap-4">
+      <div className='text-center'>
+        <p className='mb-8 text-gray-300 text-lg leading-relaxed'>{message}</p>
+        <div className='flex justify-center gap-4'>
           <button
             onClick={onClose}
-            className="px-6 py-3 border border-gray-600 rounded-lg text-gray-300 hover:bg-gray-800 transition-colors"
+            className='hover:bg-gray-800 px-6 py-3 border border-gray-600 rounded-lg text-gray-300 transition-colors'
           >
             {cancelText}
           </button>
           <button
             onClick={handleConfirm}
-            className="px-6 py-3 bg-indigo-600 text-white rounded-lg hover:bg-indigo-700 transition-colors"
+            className='bg-indigo-600 hover:bg-indigo-700 px-6 py-3 rounded-lg text-white transition-colors'
           >
             {confirmText}
           </button>
         </div>
       </div>
     </Modal>
-  )
-}
+  );
+};
 
-export default ConfirmationModal
+export default ConfirmationModal;

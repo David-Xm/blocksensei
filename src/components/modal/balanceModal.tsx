@@ -1,6 +1,6 @@
 "use client";
 
-import Modal from "../Modal";
+import Modal from "../modal";
 
 interface BalanceModalProps {
   isOpen: boolean;

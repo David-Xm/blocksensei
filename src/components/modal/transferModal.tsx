@@ -1,7 +1,7 @@
 "use client";
 
 import { useState, type FormEvent } from "react";
-import Modal from "../Modal";
+import Modal from "../modal";
 
 interface TransferModalProps {
   isOpen: boolean;
