@@ -2,27 +2,14 @@ import { useEffect, useState } from "react";
 import Card from "../components/card";
 import Card_img from "../assets/card_img1.png";
 import Coin_img from "../assets/coin.png";
-import LessonModal from "../components/lessonModal";
 import type { Lesson } from "../types";
-// import Card_img1 from "../assets/card_img2.png";
-// import Card_img2 from "../assets/card_img3.png";
-// import Card_img3 from "../assets/card_img4.png";
+import { useNavigate } from "react-router-dom";
 
 const Learn: React.FC = () => {
   const [activeTab, setActiveTab] = useState("basics");
   const [lessons, setLessons] = useState<Lesson[]>([]);
-  const [startedLessons, setStartedLessons] = useState<string[]>([]); // Stores IDs of started lessons
-  const [selectedLesson, setSelectedLesson] = useState<Lesson | null>(null);
-  const [activeSectionIndex, setActiveSectionIndex] = useState(0);
-  const [isModalOpen, setIsModalOpen] = useState(false);
 
   useEffect(() => {
-    // Load started lessons from local storage on component mount
-    const storedStartedLessons = localStorage.getItem("startedLessons");
-    if (storedStartedLessons) {
-      setStartedLessons(JSON.parse(storedStartedLessons));
-    }
-
     // Fetch or define your lesson data here
     const mockLessons: Lesson[] = [
       {
@@ -229,45 +216,10 @@ const Learn: React.FC = () => {
     setLessons(mockLessons);
   }, []);
 
-  useEffect(() => {
-    // Save started lessons to local storage whenever it changes
-    localStorage.setItem("startedLessons", JSON.stringify(startedLessons));
-  }, [startedLessons]);
+  const navigate = useNavigate();
 
-  //
-  const handleCardClick = (lesson: Lesson) => {
-    setSelectedLesson(lesson);
-    setActiveSectionIndex(0);
-  };
-
-  const openLessonModal = (lesson: Lesson) => {
-    setSelectedLesson(lesson);
-    setActiveSectionIndex(0);
-    setIsModalOpen(true);
-  };
-
-  // const closeLessonModal = () => {
-  //   setIsModalOpen(false);
-  //   setSelectedLesson(null);
-  // };
-
-  const closeModal = () => {
-    setSelectedLesson(null);
-  };
-
-  const handleNext = () => {
-    if (
-      selectedLesson &&
-      activeSectionIndex < selectedLesson.sections.length - 1
-    ) {
-      setActiveSectionIndex((prev) => prev + 1);
-    }
-  };
-
-  const handlePrev = () => {
-    if (activeSectionIndex > 0) {
-      setActiveSectionIndex((prev) => prev - 1);
-    }
+  const openLessonPage = (lesson: Lesson) => {
+    navigate(`/lessons/${lesson.id}`);
   };
 
   return (
@@ -324,7 +276,7 @@ const Learn: React.FC = () => {
               {lessons.map((lesson) => (
                 <div
                   key={lesson.id}
-                  onClick={() => openLessonModal(lesson)}
+                  onClick={() => openLessonPage(lesson)}
                   data-aos='fade-up'
                   data-aos-delay={`${200 + lessons.indexOf(lesson) * 100}`}
                 >
@@ -336,7 +288,7 @@ const Learn: React.FC = () => {
                     content={lesson.content}
                     time={lesson.time}
                     price={lesson.price}
-                    onStartLesson={() => handleCardClick(lesson)}
+                    onStartLesson={() => openLessonPage(lesson)}
                   />
                 </div>
               ))}
@@ -345,16 +297,6 @@ const Learn: React.FC = () => {
             <p>🚀 Show Advanced content here</p>
           )}
         </div>
-
-        {isModalOpen && selectedLesson && (
-          <LessonModal
-            lesson={selectedLesson}
-            activeSectionIndex={activeSectionIndex}
-            onClose={closeModal}
-            onNext={handleNext}
-            onPrev={handlePrev}
-          />
-        )}
       </div>
     </div>
   );

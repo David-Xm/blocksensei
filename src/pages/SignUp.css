@@ -1,21 +1,10 @@
-.logo,
-.x {
-  width: 500px;
-}
-
-.topdiv {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding-left: 150px;
-  padding-top: 30px;
-}
 .btn {
   cursor: pointer;
 }
 
 .getstarteddiv {
   display: flex;
+  z-index: 10;
   flex-direction: column;
   align-items: center;
   justify-content: center;
@@ -23,6 +12,7 @@
 }
 
 .startdiv {
+  z-index: 10;
   background-color: #333333;
   padding: 30px;
   display: flex;
@@ -58,6 +48,6 @@
 
 .neon {
   position: absolute;
-  bottom: -60%;
+  bottom: 0;
   right: 0;
 }

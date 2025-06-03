@@ -73,7 +73,7 @@ const Dashboard = () => {
       )}
 
       {/* Main content */}
-      <main className='flex-1 md:pt-20 md:pl-64'>
+      <main className='flex-1 pt-20 md:pt-0 md:pl-64'>
         <Outlet />
       </main>
     </div>

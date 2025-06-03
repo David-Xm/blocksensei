@@ -1,6 +1,4 @@
 import { Link } from "react-router-dom";
-import logo from "../assets/Logo.png";
-import x from "../assets/cancel_svgrepo.com.png";
 import "./SignUp.css";
 import arrow from "../assets/arrow.png";
 import neon from "../assets/Image_fx (9)-Photoroom 2.png";
@@ -8,14 +6,6 @@ const SignUp = () => {
   return (
     <>
       <div className='maincontainer'>
-        <div className='topdiv'>
-          <img src={logo} alt='' />
-          <button className='btn'>
-            {" "}
-            <img src={x} alt='' />
-          </button>
-        </div>
-
         <div className='getstarteddiv'>
           <p className='get'>Getting Started</p>
           <div className='startdiv'>
