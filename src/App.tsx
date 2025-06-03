@@ -12,6 +12,7 @@ import Navbar from "./components/navbar";
 import "aos/dist/aos.css";
 import AOS from "aos";
 import { useEffect } from "react";
+import LessonPage from "./pages/lesson";
 
 function App() {
   const location = useLocation();
@@ -32,16 +33,19 @@ function App() {
       {/* Show Navbar only if NOT in dashboard */}
       {!isDashboard && <Navbar />}
 
-      <Routes>
-        <Route path='/' element={<Home />} />
-        <Route path='/signup' element={<SignUp />} />
+      <div className='md:pt-20 min-h-screen'>
+        <Routes>
+          <Route path='/' element={<Home />} />
+          <Route path='/signup' element={<SignUp />} />
 
-        <Route path='/dashboard' element={<Dashboard />}>
-          <Route path='learn' element={<Learn />} />
-          <Route path='profile' element={<Profile />} />
-          <Route path='quest' element={<Quest />} />
-        </Route>
-      </Routes>
+          <Route path='/dashboard' element={<Dashboard />}>
+            <Route path='learn' element={<Learn />} />
+            <Route path='profile' element={<Profile />} />
+            <Route path='quest' element={<Quest />} />
+          </Route>
+          <Route path='/lessons/:lessonId' element={<LessonPage />} />
+        </Routes>
+      </div>
     </div>
   );
 }
